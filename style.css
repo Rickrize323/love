@@ -1,72 +1,33 @@
-/* Reset ligero */
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-/* Layout general */
-body {
-  background: #111;
-  min-height: 100vh;
-  padding: 24px;
-
-  display: grid;
-  place-content: center;
-}
-
-/* Galería */
-body {
-  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 12px;
-}
-
-/* Imágenes */
 img {
-  width: 100%;
-  aspect-ratio: 1 / 1;        /* Cuadradas sin forzar height */
-  object-fit: cover;
-  border-radius: 18px;
-
-  /* Visual */
-  box-shadow: 0 8px 24px rgba(0,0,0,0.35);
-  background: #222;
-
-  /* Animación */
-  view-timeline-name: --reveal;
-  animation-name: show;
-  animation-fill-mode: both;
-  animation-timeline: --reveal;
-  animation-range: entry 20% cover 40%;
+    width: 250px;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 16px;
+}
+body{
+    background: #111;
+    display: grid;
+    padding-block: 128px;
+    place-content: center;
+    gap: 8px;
 }
 
-/* Animación */
+
 @keyframes show {
   from {
-    opacity: 0;
-    transform: scale(0.85) translateY(20px);
+    opacity: 0; scale: 10%;
   }
   to {
-    opacity: 1;
-    transform: scale(1) translateY(0);
+    opacity: 1; scale: 100%;
   }
 }
+img {
+  view-timeline-name: --reveal;
 
-/* 🖥️ Tablets */
-@media (min-width: 600px) {
-  body {
-    padding: 48px;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 16px;
-  }
-}
+  animation-name: show;
+  animation-fill-mode: both;
 
-/* 🖥️ Desktop */
-@media (min-width: 1024px) {
-  body {
-    padding: 96px;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-  }
+  animation-timeline: --reveal;
+  animation-range:entry 25% cover 50%;
 }
 
