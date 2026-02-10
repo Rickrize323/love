@@ -1,33 +1,48 @@
-img {
-    width: 250px;
-    height: 250px;
-    object-fit: cover;
-    border-radius: 16px;
-}
-body{
-    background: #111;
-    display: grid;
-    padding-block: 128px;
-    place-content: center;
-    gap: 8px;
+body {
+  background: #111;
+  margin: 0;
+  padding: 32px;
 }
 
-
-@keyframes show {
-  from {
-    opacity: 0; scale: 10%;
-  }
-  to {
-    opacity: 1; scale: 100%;
-  }
+/* Carrusel */
+.carousel {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;     /* 🔑 snap bonito */
+  -webkit-overflow-scrolling: touch; /* 🔑 inercia iOS */
+  padding: 16px;
 }
-img {
-  view-timeline-name: --reveal;
 
-  animation-name: show;
-  animation-fill-mode: both;
+/* Ocultar scrollbar */
+.carousel::-webkit-scrollbar {
+  display: none;
+}
 
-  animation-timeline: --reveal;
-  animation-range:entry 25% cover 50%;
+/* Cards */
+.card {
+  scroll-snap-align: center;         /* 🔑 se centra al soltar */
+  flex: 0 0 auto;
+  width: 110px;
+  height: 110px;
+  border-radius: 16px;
+  overflow: hidden;
+  background: #222;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Imagen */
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Feedback táctil */
+.card:active {
+  transform: scale(0.96);
 }
 
